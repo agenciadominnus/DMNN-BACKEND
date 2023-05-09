@@ -21,7 +21,13 @@ import { IonicCorsMiddleware } from './middlewares/main.middleware';
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
       autoLoadEntities: true,
-      synchronize: true, // shouldn't be used in production - may lose data
+      synchronize: true,
+      logging: false,
+      dropSchema: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    
     }),
     FeedModule,
     AuthModule,
